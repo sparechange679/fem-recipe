@@ -1,37 +1,72 @@
 /* outfit-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Outfit";
-  font-style: normal;
   font-weight: 400;
-  src: url("/assets/fonts/outfit-v11-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  font-display: swap;
+  font-style: normal;
+  font-family: "Outfit";
+  src: url("/assets/fonts/outfit/outfit-v11-latin-regular.woff2")
+    format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* outfit-600 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Outfit";
-  font-style: normal;
   font-weight: 600;
-  src: url("/assets/fonts/outfit-v11-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  font-display: swap;
+  font-style: normal;
+  font-family: "Outfit";
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("./assets/fonts/outfit/outfit-v11-latin-600.woff2") format("woff2"); 
 }
 
 /* outfit-700 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Outfit";
-  font-style: normal;
   font-weight: 700;
-  src: url("/assets/fonts/outfit-v11-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  font-display: swap;
+  font-style: normal;
+  font-family: "Outfit";
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("./assets/fonts/outfit/outfit-v11-latin-700.woff2") format("woff2"); 
 }
 
 /* young-serif-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Young Serif";
-  font-style: normal;
   font-weight: 400;
-  src: url("/assets/fonts/young-serif-v2-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  font-display: swap;
+  font-style: normal;
+  font-family: "Young Serif";
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("./assets/fonts/young-serif/young-serif-v2-latin-regular.woff2")
+    format("woff2"); 
+}
+
+:root {
+  /* custom color values */
+  --c-white: hsl(0, 0%, 100%);
+
+  --c-stone-900: hsl(24, 5%, 18%);
+  --c-stone-100: hsl(30, 54%, 90%);
+  --c-stone-150: hsl(30, 18%, 87%);
+  --c-stone-600: hsl(30, 10%, 34%);
+
+  --c-brown-800: hsl(14, 45%, 36%);
+
+  --c-rose-800: hsl(332, 51%, 32%);
+  --c-rose-50: hsl(330, 100%, 98%);
+
+  /* custom font family */
+  --ff-sans-serif: "Outfit", Arial, Helvetica, sans-serif;
+  --ff-serif: "Young Serif", Georgia, "Times New Roman", Times, serif;
+
+  /* custom color usage */
+  --color-text: var(--c-stone-600);
+  --color-background: var(--c-stone-100);
+  --color-prep-headline: var(--c-rose-800);
+  --color-background-recipe: var(--c-white);
+  --color-headline-primary: var(--c-stone-900);
+  --color-headline-secondary: var(--c-brown-800);
+  --color-prep-background: var(--c-rose-50);
+  --color-border: var(--c-stone-150);
+  --color-table-td: var(--c-brown-800);
 }
 
 *,
@@ -42,5 +77,158 @@
 
 body {
   margin: 0;
-  font-family: "Outfit", sans-serif;
+  font-family: var(--ff-sans-serif);
+  background-color: var(--color-background);
+}
+
+h1,
+h2 {
+  margin: 0;
+  line-height: 1;
+  font-family: var(--ff-serif);
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: normal;
+  margin-block-end: 20px;
+  color: var(--color-headline-primary);
+
+  /* Desktop view: 830px => 51.875rem */
+  @media (width >= 51.875rem) {
+    font-size: 2.95rem;
+    margin-block-end: 24px;
+  }
+}
+
+h2 {
+  font-size: 1.6rem;
+  color: var(--color-headline-secondary);
+}
+
+p,
+ul li,
+ol li,
+th,
+td {
+  font-size: 1rem;
+  color: var(--color-text);
+
+  /* Desktop view: 830px => 51.875rem */
+  @media (width >= 51.875rem) {
+    font-size: 1.15rem;
+  }
+}
+
+p {
+  line-height: 1.3;
+  margin-block-end: 20px;
+
+  /* Desktop view: 830px => 51.875rem */
+  @media (width >= 51.875rem) {
+    margin-block-end: 24px;
+  }
+}
+
+ul,
+ol {
+  margin-block-end: 0;
+  padding-inline-start: 16px;
+
+  li {
+    line-height: 2;
+    padding-inline-start: 20px;
+  }
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+section {
+  padding-block-end: 30px;
+}
+
+table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+
+  .tr {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  th,
+  td {
+    padding-left: 10px;
+    padding-block: 14px;
+  }
+
+  th {
+    padding-inline-start: 30px;
+    color: var(--color-table-td);
+  }
+
+  td {
+    padding-left: 35px;
+  }
+}
+
+.nutrition {
+  padding-block-end: 0;
+}
+
+.wrapper {
+  display: grid;
+  place-items: center;
+
+  /* Desktop view: 830px => 51.875rem */
+  @media (width >= 51.875rem) {
+    padding-block: 8rem;
+  }
+}
+
+.border-bottom {
+  margin-block-end: 30px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.recipe {
+  max-width: 52rem;
+  background-color: var(--color-background-recipe);
+
+  /* Desktop view: 830px => 51.875rem */
+  @media (width >= 51.875rem) {
+    padding: 36px;
+    max-width: 52rem;
+    border-radius: 20px;
+  }
+}
+
+.recipe-image {
+  /* Desktop view: 830px => 51.875rem */
+  @media (width >= 51.875rem) {
+    border-radius: 12px;
+    margin-block-end: 32px;
+  }
+}
+
+.recipe-text {
+  /* Mobile view: 830px => 51.875rem */
+  @media (width < 51.875rem) {
+    padding: 30px 24px;
+  }
+}
+
+.prep {
+  background-color: var(--color-prep-background);
+  padding: 20px;
+  border-radius: 12px;
+
+  h2 {
+    font-size: 1.2rem;
+    font-family: var(--ff-sans-serif);
+    color: var(--color-prep-headline);
+  }
 }
